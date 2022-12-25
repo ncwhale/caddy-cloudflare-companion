@@ -2,7 +2,10 @@ module github.com/ncwhale/caddy-cloudflare-companion
 
 go 1.19
 
-require github.com/caddyserver/caddy/v2 v2.6.2
+require (
+	github.com/caddyserver/caddy/v2 v2.6.2
+	github.com/libdns/cloudflare v0.1.0
+)
 
 require (
 	github.com/beorn7/perks v1.0.1 // indirect
