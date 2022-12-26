@@ -24,10 +24,10 @@ func (this *Companion) Provision(ctx caddy.Context) error {
 	return nil
 }
 
-func (p *Companion) UnmarshalCaddyfile(d *caddyfile.Dispenser) error {
+func (this *Companion) UnmarshalCaddyfile(d *caddyfile.Dispenser) error {
 	for d.Next() {
 		if d.NextArg() {
-			p.Provider.APIToken = d.Val()
+			this.Provider.APIToken = d.Val()
 		}
 		if d.NextArg() {
 			return d.ArgErr()
@@ -35,10 +35,10 @@ func (p *Companion) UnmarshalCaddyfile(d *caddyfile.Dispenser) error {
 		for nesting := d.Nesting(); d.NextBlock(nesting); {
 			switch d.Val() {
 			case "api_token":
-				if p.Provider.APIToken != "" {
+				if this.Provider.APIToken != "" {
 					return d.Err("API token already set")
 				}
-				p.Provider.APIToken = d.Val()
+				this.Provider.APIToken = d.Val()
 				if d.NextArg() {
 					return d.ArgErr()
 				}
@@ -47,7 +47,7 @@ func (p *Companion) UnmarshalCaddyfile(d *caddyfile.Dispenser) error {
 			}
 		}
 	}
-	if p.Provider.APIToken == "" {
+	if this.Provider.APIToken == "" {
 		return d.Err("missing API token")
 	}
 	return nil
