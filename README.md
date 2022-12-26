@@ -1,17 +1,10 @@
 # caddy-cloudflare-companion
 Automate the CNAME CRUD operations follow the caddy config file.
 
-## Build
-
-Best way to build `caddy` with this plugin is using [`xcaddy`](https://github.com/caddyserver/xcaddy) tool:
-
-0. install `golang` with whatever you like;
-1. install `xcaddy`: `go install github.com/caddyserver/xcaddy/cmd/xcaddy@latest`
-2. build using `xcaddy`: `xcaddy build --with "github.com/ncwhale/caddy-cloudflare-companion"`
-
-    You can using `--with <other plugin module> `  to add more plugin you like.
+This project is based on `docker-traefik-cloudflare-companion` which works with docker & traefik, modified the logic to fit the caddy api instead.
 
 ## Reference
 
 * [Cloudflare CNAME automation](https://caddy.community/t/cloudflare-cname-automation/13628)
-* [libdns/cloudflare](https://github.com/libdns/cloudflare)
+* [Caddy v2 API](https://caddyserver.com/docs/api)
+* [docker-traefik-cloudflare-companion](https://github.com/tiredofit/docker-traefik-cloudflare-companion)
